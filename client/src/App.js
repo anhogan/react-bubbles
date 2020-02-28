@@ -9,7 +9,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route exact path="/api/login" component={Login} />
+        <Route path="/api/login" render={(props) => (
+          <Login {...props} />)} />
         <PrivateRoute exact path="/api/colors" component={BubblePage} />
         <nav>
           <Link to="/api/login">Login</Link>
