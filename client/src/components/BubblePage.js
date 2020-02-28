@@ -3,7 +3,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
 
-const BubblePage = () => {
+const BubblePage = (props) => {
   const [colorList, setColorList] = useState([]);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const BubblePage = () => {
 
   return (
     <>
-      <ColorList colors={colorList} updateColors={setColorList} />
+      <ColorList history={props.history} colors={colorList} updateColors={setColorList} />
       <Bubbles colors={colorList} />
     </>
   );
