@@ -6,15 +6,16 @@ const Login = (props) => {
     username: '',
     password: ''
   });
+  console.log(credentials);
   const [isLoading, setIsLoading] = useState(false);
 
   const login = (event) => {
     event.preventDefault();
     setIsLoading(true);
-    axiosWithAuth.post('/api/login', credentials)
+    axiosWithAuth().post('/api/login', credentials)
       .then(response => {
         console.log(response);
-        window.localStorage.setItem('token', response.data);
+        window.localStorage.setItem('token', response.data.payload);
         props.history.push('/api/colors');
         setIsLoading(false);
       })
@@ -25,6 +26,7 @@ const Login = (props) => {
 
   const handleChange = (event) => {
     setCredentials({
+      ...credentials,
       [event.target.name]: event.target.value
     });
   };
@@ -51,6 +53,7 @@ const Login = (props) => {
             value={credentials.password}
             onChange={handleChange} />
         </div>
+        <button>Login</button>
       </form>
     </>
   );
