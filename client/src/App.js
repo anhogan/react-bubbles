@@ -9,12 +9,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav>
-          <Link to="/api/login">Login</Link>
-          <Link to="/api/colors">Color List</Link>
-        </nav>
         <Route exact path="/api/login" component={Login} />
         <PrivateRoute exact path="/api/colors" component={BubblePage} />
+        <nav>
+          <Link to="/api/login">Login</Link>
+          <Link to="/api/colors">Colors</Link>
+        </nav>
       </div>
     </Router>
   );

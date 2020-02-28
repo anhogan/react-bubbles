@@ -104,7 +104,6 @@ const ColorList = (props) => {
           </div>
         </form>
       )}
-      <div className="spacer" />
       <form onSubmit={addColor}>
           <legend>add color</legend>
           <label>
