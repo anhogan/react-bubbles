@@ -9,8 +9,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route path="/api/login" render={(props) => (
-          <Login {...props} />)} />
+        <Route path="/api/login" component={Login} />
         <PrivateRoute exact path="/api/colors" component={BubblePage} />
         <nav>
           <Link to="/api/login">Login</Link>
